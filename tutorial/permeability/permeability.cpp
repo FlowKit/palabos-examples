@@ -171,7 +171,7 @@ int main(int argc, char **argv)
         
         MultiScalarField3D<int> geometry(nx,ny,nz);
         MultiScalarField3D<int> slice(1,ny,nz);
-        for (iX=0; iX<nx-1; ++iX) {
+        for (plint iX=0; iX<nx-1; ++iX) {
             string fname = createFileName("slice_", iX, 4)+"_truc.dat";
             pcout << "Reading slice " << fname;
             plb_ifstream geometryFile(fNameIn.c_str());
@@ -186,7 +186,6 @@ int main(int argc, char **argv)
         ////////
 
         pcout << "Reading the geometry file." << endl;
-        MultiScalarField3D<int> geometry(nx,ny,nz);
         plb_ifstream geometryFile(fNameIn.c_str());
         if (!geometryFile.is_open()) {
                 pcout << "Error: could not open geometry file " << fNameIn << endl;
